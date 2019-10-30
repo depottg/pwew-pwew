@@ -13,6 +13,12 @@ function update()
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 
+    // Player-to-player collisions
+    if (Math.sqrt(Math.pow(player1.graphic.position.x - player2.graphic.position.x, 2)
+    + Math.pow(player1.graphic.position.y - player2.graphic.position.y, 2)) < 20) {
+        player1.dead();
+    }
+
     player1.move();
     if (player2 != null)
         player2.move();
