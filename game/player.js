@@ -35,11 +35,17 @@ Player.prototype.accelerate = function (distance) {
 };
 
 Player.prototype.dead = function () {
-    this.graphic.position.z = this.graphic.position.z-0.1;
+    if (this === player1) {
+        this.graphic.position.z = this.graphic.position.z - 0.1;
         //Nettoyage de la div container
         $("#container").html("");
-        jQuery('#'+this.name+' >.life').text("Tu es mort !");
+        jQuery('#' + this.name + ' >.life').text("Tu es mort !");
         init();
+    }
+    else {
+        scene.remove(player2.graphic);
+        player2 = null;
+    }
 }
 
 Player.prototype.decelerate = function (distance) {

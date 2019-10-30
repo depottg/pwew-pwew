@@ -52,7 +52,20 @@ function bullet_collision()
             i--;
         }
     }
-
+    //collision between bullet and the enemy
+    if (player2 != null) {
+        for (var j = 0; j < player1.bullets.length; j++)
+        {
+            if (Math.sqrt(Math.pow(player2.position.x - player1.bullets[j].position.x, 2)
+                + Math.pow(player2.position.y - player1.bullets[j].position.y, 2)) < 10)
+            {
+                player2.dead();
+                scene.remove(player1.bullets[j]);
+                player1.bullets.splice(j, 1);
+                j--;
+            }
+        }
+    }
 }
 
 function player_collision()
