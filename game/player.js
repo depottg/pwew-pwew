@@ -40,6 +40,7 @@ Player.prototype.dead = function () {
         //Nettoyage de la div container
         $("#container").html("");
         jQuery('#' + this.name + ' >.life').text("Tu es mort !");
+        player1.life -= 1;
         init();
     }
     else {
@@ -86,7 +87,6 @@ Player.prototype.move = function () {
         else if (this.speed < 0) {
             this.speed = this.speed + 0.04
         }
-        console.log(this.position);
 
         light1.position.x = this.graphic.position.x;
         light1.position.y = this.graphic.position.y;

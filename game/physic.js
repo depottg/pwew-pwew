@@ -14,7 +14,7 @@ function update()
         player1.decelerate(moveDistance);
 
     // Player-to-player collisions
-    if (Math.sqrt(Math.pow(player1.graphic.position.x - player2.graphic.position.x, 2)
+    if (player2 != null && Math.sqrt(Math.pow(player1.graphic.position.x - player2.graphic.position.x, 2)
     + Math.pow(player1.graphic.position.y - player2.graphic.position.y, 2)) < 20) {
         player1.dead();
     }
@@ -23,4 +23,5 @@ function update()
     if (player2 != null)
         player2.move();
     controls.update();
+
 }

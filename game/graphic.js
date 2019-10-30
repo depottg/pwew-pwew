@@ -25,7 +25,9 @@ function init()
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
 
+    const life = player1 == null ? -1 : player1.life;
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
+    player1.life = life == -1 ? player1.life : life;
     scene.add(player1.graphic);
 
     player2 = new Player("player2", 0xff0000, new THREE.Vector2(50, 0), 0);
@@ -34,6 +36,8 @@ function init()
 
     light1 = new Light("sun", 0xffffff, "0,0,100");
     scene.add(light1);
+
+    document.getElementById("life-counter").innerText = player1.life;
 }
 
 function Ground(color, size_x, size_y, nb_tile)
@@ -47,8 +51,6 @@ function Ground(color, size_x, size_y, nb_tile)
     sizeOfTileY = size_y / nb_tile;
     minY = -(size_y/2);
     maxY = (size_y/2);
-
-    console.log(sizeOfTileY);
 
     for (x = minX; x <= maxX; x = x+sizeOfTileX){
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
