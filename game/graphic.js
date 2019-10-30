@@ -1,6 +1,6 @@
 function init()
 {
-    // set some camera attributes
+    // Set some camera attributes
     var VIEW_ANGLE = 45,
         ASPECT = WIDTH / HEIGHT,
         NEAR = 0.1,

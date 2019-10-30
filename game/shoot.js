@@ -41,7 +41,7 @@ function collisions()
 
 function bullet_collision()
 {
-    //collision between bullet and walls
+    // Collision between bullets and walls
     for (var i = 0; i < player1.bullets.length; i++)
     {
         if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
@@ -52,7 +52,7 @@ function bullet_collision()
             i--;
         }
     }
-    //collision between bullet and the enemy
+    // Collision between bullets and the enemy
     if (player2 != null) {
         for (var j = 0; j < player1.bullets.length; j++)
         {
