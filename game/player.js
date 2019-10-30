@@ -72,21 +72,33 @@ Player.prototype.turnLeft = function (angle) {
 };
 
 Player.prototype.move = function () {
-    var moveTo = new THREE.Vector3(
-        this.speed * Math.cos(this.direction) + this.graphic.position.x,
-        this.speed * Math.sin(this.direction) + this.graphic.position.y,
-        this.graphic.position.z
-    );
+    if (this === player1) {
+        var moveTo = new THREE.Vector3(
+            this.speed * Math.cos(this.direction) + this.graphic.position.x,
+            this.speed * Math.sin(this.direction) + this.graphic.position.y,
+            this.graphic.position.z
+        );
 
-    this.graphic.position = moveTo;
-    if (this.speed > 0) {
-        this.speed = this.speed - 0.04;
-    }
-    else if (this.speed < 0) {
-        this.speed = this.speed + 0.04
-    }
+        this.graphic.position = moveTo;
+        if (this.speed > 0) {
+            this.speed = this.speed - 0.04;
+        }
+        else if (this.speed < 0) {
+            this.speed = this.speed + 0.04
+        }
+        console.log(this.position);
 
-    light1.position.x = this.graphic.position.x;
-    light1.position.y = this.graphic.position.y;
-   // light1.position.z = this.graphic.position.z + 500;
+        light1.position.x = this.graphic.position.x;
+        light1.position.y = this.graphic.position.y;
+        // light1.position.z = this.graphic.position.z + 500;
+    }
+    else {
+        if (this.speed === 0)
+            this.speed = 1;
+        if (this.position.x > 200 || this.position.x < -200)
+            this.speed = -this.speed;
+
+        this.position.x += this.speed;
+        this.graphic.position.x += this.speed;
+    }
 };
