@@ -41,6 +41,8 @@ Player.prototype.dead = function () {
         $("#container").html("");
         jQuery('#' + this.name + ' >.life').text("Tu es mort !");
         player1.life -= 1;
+        if (player1.life === 0)
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         init();
     }
     else {

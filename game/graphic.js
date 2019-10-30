@@ -27,7 +27,7 @@ function init()
 
     const life = player1 == null ? -1 : player1.life;
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
-    player1.life = life == -1 ? player1.life : life;
+    player1.life = life === -1 ? player1.life : life;
     scene.add(player1.graphic);
 
     player2 = new Player("player2", 0xff0000, new THREE.Vector2(50, 0), 0);

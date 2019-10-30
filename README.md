@@ -28,3 +28,6 @@ You can update the index.html file and all the files inside the game repository
 - [X] : As a ennemy, I want to move on one axe
 - [X] : As a user, I want to decrease my life when I am touch by an ennemy
 - [X] : As a user, I want to decrease my life when I fall 
+
+**BONUS**
+- [X] : Have a nice "Game Over" screen when you hit 0 lifes
