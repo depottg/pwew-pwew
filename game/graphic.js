@@ -44,11 +44,16 @@ function Ground(color, size_x, size_y, nb_tile)
     minY = -(size_y/2);
     maxY = (size_y/2);
 
+    console.log(sizeOfTileY);
+
     for (x = minX; x <= maxX; x = x+sizeOfTileX){
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
 
             color = colors[Math.floor(Math.random()*colors.length)];
-       
+            while (0x000000 == color && (x / sizeOfTileX === 0 && y / sizeOfTileY === 0)) {
+                color = colors[Math.floor(Math.random()*colors.length)];
+            }
+
             if (0x000000 != color)
             {
                 tmpGround = new THREE.Mesh(
